@@ -18,6 +18,10 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 export default function dateSample( sampleActivity ) {
-  
+    if (typeof sampleActivity !== 'string')
+    return false
+    sampleActivity = Number(sampleActivity)
+    return !isNaN(sampleActivity) && 0 < sampleActivity && sampleActivity < MODERN_ACTIVITY &&
+    Math.ceil(Math.log(MODERN_ACTIVITY / sampleActivity) / kN);
 
 }
